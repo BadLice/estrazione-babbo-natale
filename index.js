@@ -1,94 +1,71 @@
 const nodemailer = require('nodemailer');
-const DEBUG = false;
+const DEBUG = true;
 const SOURCE_MAIL = 'babbo.natale.fontanelle@gmail.com';
-const SOURCE_PSW = 'estrazioneBabbo2021';
+const SOURCE_PSW = 'rsxdtspyasvuasga';
 const fs = require('fs');
 let transporter;
 let people = [
 	{
 		isExtracted: { advicer: false, kid: false },
 		id: 0,
-		name: 'Federico Russo',
-		mail: 'Federicorusso113@gmail.com',
-		exceptions: [],
-	},
-	{
-		isExtracted: { advicer: false, kid: false },
-		id: 1,
 		name: 'Matteo Citterio',
 		mail: 'teocitte7@gmail.com',
-		exceptions: [4],
-	},
-	{
-		isExtracted: { advicer: false, kid: false },
-		id: 2,
-		name: 'Camilla Sangiorgio',
-		mail: 'camillasangiorgio@hotmail.com',
-		exceptions: [10],
-	},
-	{
-		isExtracted: { advicer: false, kid: false },
-		id: 3,
-		name: 'Luca Maiano',
-		mail: 'lucamaiano23@gmail.com',
-		exceptions: [],
-	},
-	{
-		isExtracted: { advicer: false, kid: false },
-		id: 4,
-		name: 'Anna Zilioli',
-		mail: 'anna.zilia.az@gmail.com',
 		exceptions: [1],
 	},
 	{
 		isExtracted: { advicer: false, kid: false },
-		id: 5,
+		id: 1,
+		name: 'Anna Zilioli',
+		mail: 'anna.zilia.az@gmail.com',
+		exceptions: [0],
+	},
+	{
+		isExtracted: { advicer: false, kid: false },
+		id: 2,
 		name: 'Andrea Monguzzi',
 		mail: 'andreamonguzzi4@gmail.com',
-		exceptions: [],
+		exceptions: [7],
 	},
 	{
 		isExtracted: { advicer: false, kid: false },
-		id: 6,
-		name: 'Edoardo Cusenza',
-		mail: 'edocuse2000@gmail.com',
-		exceptions: [],
-	},
-	{
-		isExtracted: { advicer: false, kid: false },
-		id: 7,
-		name: 'Arianna Mazzola',
-		mail: 'Arimazzo00@gmail.com',
-		exceptions: [],
-	},
-	{
-		isExtracted: { advicer: false, kid: false },
-		id: 8,
+		id: 3,
 		name: 'Davide Delmiglio',
 		mail: 'davide200.dd@gmail.com',
 		exceptions: [],
 	},
 	{
 		isExtracted: { advicer: false, kid: false },
-		id: 9,
-		name: 'Andrea monti',
-		mail: 'montiandrea108@gmail.com',
+		id: 4,
+		name: 'Alex Licata',
+		mail: 'alerandom99@gmail.com',
 		exceptions: [],
 	},
 	{
 		isExtracted: { advicer: false, kid: false },
-		id: 10,
-		name: 'Alex Licata',
-		mail: 'alerandom99@gmail.com',
+		id: 5,
+		name: 'Greta Sieli',
+		mail: 'gretasieli@libero.it',
+		exceptions: [],
+	},
+	{
+		isExtracted: { advicer: false, kid: false },
+		id: 6,
+		name: 'Gaia Consonni',
+		mail: 'gaiaconsonni02@gmail.com',
+		exceptions: [],
+	},
+	{
+		isExtracted: { advicer: false, kid: false },
+		id: 7,
+		name: 'Angelica parricelli',
+		mail: 'Angelicaparricelli@gmail.com',
 		exceptions: [2],
 	},
 ];
 
 const loginToGmail = () => {
 	transporter = nodemailer.createTransport({
-		host: 'smtp.gmail.com',
-		port: 587,
-		secure: false, // true for 465, false for other ports
+		service: 'gmail',
 		auth: {
 			user: SOURCE_MAIL, // generated gmail user
 			pass: SOURCE_PSW, // generated gmail account password
@@ -123,7 +100,6 @@ const extractWithConditions = (
 	lastExtractionCallback
 ) => {
 	if (!avaliableValuesArray || avaliableValuesArray.length === 0) {
-		console.log('passo da qui');
 		return null;
 	}
 	let count = 0;
