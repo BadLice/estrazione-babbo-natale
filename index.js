@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const DEBUG = true;
+const DEBUG = false;
 const SOURCE_MAIL = 'babbo.natale.fontanelle@gmail.com';
 const SOURCE_PSW = 'rsxdtspyasvuasga';
 const fs = require('fs');
