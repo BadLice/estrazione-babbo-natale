@@ -8,16 +8,16 @@ let people = [
   {
     isExtracted: { advicer: false, kid: false },
     id: 0,
-    name: "Matteo Citterio",
-    mail: "teocitte7@gmail.com",
-    exceptions: [1],
+    name: "Giovanni Salerno",
+    mail: "Giovanni.salerno2199@gmail.com",
+    exceptions: [5],
   },
   {
     isExtracted: { advicer: false, kid: false },
     id: 1,
     name: "Anna Zilioli",
     mail: "anna.zilia.az@gmail.com",
-    exceptions: [0],
+    exceptions: [4],
   },
   {
     isExtracted: { advicer: false, kid: false },
@@ -31,21 +31,21 @@ let people = [
     id: 3,
     name: "Davide Delmiglio",
     mail: "davide200.dd@gmail.com",
-    exceptions: [],
+    exceptions: [8],
   },
   {
     isExtracted: { advicer: false, kid: false },
     id: 4,
     name: "Alex Licata",
     mail: "alerandom99@gmail.com",
-    exceptions: [],
+    exceptions: [1],
   },
   {
     isExtracted: { advicer: false, kid: false },
     id: 5,
     name: "Greta Sieli",
     mail: "gretasieli@libero.it",
-    exceptions: [],
+    exceptions: [5],
   },
   {
     isExtracted: { advicer: false, kid: false },
@@ -60,6 +60,13 @@ let people = [
     name: "Angelica parricelli",
     mail: "Angelicaparricelli@gmail.com",
     exceptions: [2],
+  },
+  {
+    isExtracted: { advicer: false, kid: false },
+    id: 8,
+    name: "Camilla Buzzi",
+    mail: "camilla.bu25@gmail.com",
+    exceptions: [3],
   },
 ];
 
@@ -225,7 +232,7 @@ result.forEach(({ id, kid, advicer }) => {
     SOURCE_MAIL,
     DEBUG ? SOURCE_MAIL : people[id].mail,
     "Estrazione babbo natale segreto della compagnia",
-    `Ciao ${people[id].name},\nQuesta mail è SEGRETA, non farla vedere a nessuno!!!\nSarai il BABBO NATALE di ${people[kid].name}.\nIl tuo ELFO AIUTANTE sarà ${people[advicer].name}.\nP.S. VACCINATEVI SERVI DELLA DITTATURA SANITARIA E DI BILL GATES.`,
+    `Ciao ${people[id].name},\nQuesta mail è SEGRETA, non farla vedere a nessuno!!!\nSarai il BABBO NATALE di ${people[kid].name}.\nIl tuo ELFO AIUTANTE sarà ${people[advicer].name}.\nP.S. RIP Jonny`,
     html.replace("%NAME%", people[id].name).replace("%KID%", people[kid].name).replace("%ADVICER%", people[advicer].name)
   );
   console.log(`SENT MAIL TO -----------> ${people[id].mail}`);
