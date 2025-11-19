@@ -44,7 +44,7 @@ let people = [
     isExtracted: { advicer: false, kid: false },
     id: 5,
     name: "Greta Sieli",
-    mail: "gretasieli@libero.it",
+    mail: "gretasieli19@gmail.com",
     exceptions: [0],
   },
   {
