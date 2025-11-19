@@ -24,14 +24,14 @@ let people = [
     id: 2,
     name: "Andrea Monguzzi",
     mail: "andreamonguzzi4@gmail.com",
-    exceptions: [7],
+    exceptions: [],
   },
   {
     isExtracted: { advicer: false, kid: false },
     id: 3,
     name: "Davide Delmiglio",
     mail: "davide200.dd@gmail.com",
-    exceptions: [8],
+    exceptions: [],
   },
   {
     isExtracted: { advicer: false, kid: false },
@@ -45,7 +45,7 @@ let people = [
     id: 5,
     name: "Greta Sieli",
     mail: "gretasieli@libero.it",
-    exceptions: [5],
+    exceptions: [0],
   },
   {
     isExtracted: { advicer: false, kid: false },
@@ -57,16 +57,9 @@ let people = [
   {
     isExtracted: { advicer: false, kid: false },
     id: 7,
-    name: "Angelica parricelli",
-    mail: "Angelicaparricelli@gmail.com",
-    exceptions: [2],
-  },
-  {
-    isExtracted: { advicer: false, kid: false },
-    id: 8,
-    name: "Camilla Buzzi",
-    mail: "camilla.bu25@gmail.com",
-    exceptions: [3],
+    name: "Sabino Gentile",
+    mail: "sabinogentile12@gmail.com",
+    exceptions: [],
   },
 ];
 
