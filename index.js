@@ -104,7 +104,7 @@ const extractWithConditions = (avaliableValuesArray, conditionCallback, lastExtr
   do {
     extracted = Math.floor(Math.random() * avaliableValuesArray.length);
     count++;
-  } while (conditionCallback(extracted) && count < 1000);
+  } while (conditionCallback(avaliableValuesArray[extracted].id) && count < 1000);
 
   if (extracted === null) {
     console.log("avaliableValuesArray: " + avaliableValuesArray);
