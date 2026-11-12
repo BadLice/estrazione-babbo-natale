@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const DEBUG = false;
 const SOURCE_MAIL = "babbo.natale.fontanelle@gmail.com";
-const SOURCE_PSW = "rsxdtspyasvuasga";
+const SOURCE_PSW = "mktu kyzd nocs kggs";
 const fs = require("fs");
 let transporter;
 let people = [
@@ -73,13 +73,14 @@ const loginToGmail = () => {
   });
 };
 
-const sendMail = (from, to, subject, text, html, callBack) => {
+const sendMail = (from, to, subject, text, html, attachments, callBack) => {
   const mailOptions = {
     from,
     to,
     subject,
     text,
     html,
+    attachments,
   };
 
   transporter.sendMail(mailOptions, callBack);
@@ -218,15 +219,25 @@ console.log("SUCCESSFUL EXTRATION -------> SENDING MAIL...");
 // mando mail
 loginToGmail();
 
+const path = require("path");
 let html = fs.readFileSync("./mailTemplate.html", { encoding: "utf-8" });
 
+const bgAttachment = {
+  filename: "slitta-di-natale-9-16_senza scritte.gif",
+  path: path.join(__dirname, "slitta-di-natale-9-16_senza scritte.gif"),
+  cid: "bgimage",
+};
+
 result.forEach(({ id, kid, advicer }) => {
+  const personalHtml = html.replace("%NAME%", people[id].name).replace("%KID%", people[kid].name).replace("%ADVICER%", people[advicer].name);
+
   sendMail(
     SOURCE_MAIL,
     DEBUG ? SOURCE_MAIL : people[id].mail,
     "Estrazione babbo natale segreto della compagnia",
     `Ciao ${people[id].name},\nQuesta mail è SEGRETA, non farla vedere a nessuno!!!\nSarai il BABBO NATALE di ${people[kid].name}.\nIl tuo ELFO AIUTANTE sarà ${people[advicer].name}.\nP.S. RIP Jonny`,
-    html.replace("%NAME%", people[id].name).replace("%KID%", people[kid].name).replace("%ADVICER%", people[advicer].name)
+    personalHtml,
+    [bgAttachment],
   );
   console.log(`SENT MAIL TO -----------> ${people[id].mail}`);
 });
