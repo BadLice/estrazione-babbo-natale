@@ -58,7 +58,7 @@ let people = [
     isExtracted: { advicer: false, kid: false },
     id: 7,
     name: "Alice Gatti",
-    mail: "???",
+    mail: "alicegatti.03@gmail.com",
     exceptions: [3],
   },
 ];
@@ -150,7 +150,7 @@ do {
       people.filter(({ isExtracted, id }) => !isExtracted.kid && id !== people[i].id),
 
       (extracted) => people[i].exceptions.indexOf(extracted) !== -1,
-      getLastAvaliableKid
+      getLastAvaliableKid,
     );
     if (kidId === null) {
       errors.somethingNull = true;
@@ -162,7 +162,7 @@ do {
     advicerId = extractWithConditions(
       people.filter(({ isExtracted, id }) => !isExtracted.advicer && id !== people[i].id && id !== kidId),
       (extracted) => people[extracted].isExtracted.advicer,
-      getLastAvaliableAdvicer
+      getLastAvaliableAdvicer,
     );
     if (advicerId === null) {
       errors.somethingNull = true;
