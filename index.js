@@ -31,7 +31,7 @@ let people = [
     id: 3,
     name: "Davide Delmiglio",
     mail: "davide200.dd@gmail.com",
-    exceptions: [],
+    exceptions: [7],
   },
   {
     isExtracted: { advicer: false, kid: false },
@@ -57,9 +57,9 @@ let people = [
   {
     isExtracted: { advicer: false, kid: false },
     id: 7,
-    name: "Sabino Gentile",
-    mail: "sabinogentile12@gmail.com",
-    exceptions: [],
+    name: "Alice Gatti",
+    mail: "???",
+    exceptions: [3],
   },
 ];
 
